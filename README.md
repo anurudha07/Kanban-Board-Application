@@ -57,7 +57,3 @@ Open your browser at http://localhost:8080 (default Vue port).
 
 ![img1](https://github.com/user-attachments/assets/06bf45dc-08bd-4189-a53d-ca03bc4f0efe)
 
-│   │   └── App.vue
-│   └── package.json
-└── README.md
-
