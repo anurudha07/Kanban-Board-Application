@@ -35,7 +35,7 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/yourusername/kanban-vue-app.git
+git clone (https://github.com/anurudha07/Kanban-Board-Application)
 cd kanban-vue-app
 
 Install backend dependencies and start server:
