@@ -1,0 +1,331 @@
+*{
+  background-color: rgb(rgb(201, 193, 193), rgb(199, 199, 199), rgb(114, 114, 117));
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f5f7;
+  color: #333;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: rgb(5, 5, 5);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Board Layout */
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px;
+  padding: 24px;
+  justify-content: center; /* added to center columns under header */
+}
+
+/* Columns */
+.column {
+  background: #ebecf0;
+  border-radius: 8px;
+  width: 270px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.column h3 {
+  margin-top: -90px;
+  margin-left: 20px;
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #172b4d;
+}
+
+.column button {
+  margin-bottom: 12px;
+}
+
+/* Task Cards */
+.task-card {
+  background: white;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease-in-out;
+}
+
+.task-card:hover {
+  transform: scale(1.02);
+}
+
+.task-card strong {
+  font-size: 16px;
+  color: #172b4d;
+}
+
+.task-card p {
+  font-size: 14px;
+  color: #4d4d4d;
+}
+
+.task-card small {
+  display: block;
+  color: #6b778c;
+  margin-top: 4px;
+}
+
+/* Modals */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  max-width: 400px;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.modal textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.modal button {
+  margin-top: 12px;
+}
+
+.modal button + button {
+  margin-left: 8px;
+}
+
+/* 1) Header wrapper */
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;    /* space from header down to box */
+}
+
+/* title in header */
+.column-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #172b4d;
+}
+
+/* "+" button in header */
+.add-task-header-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #5e6c84;
+  padding: 4px 8px;
+  margin-top: -90px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.add-task-header-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* 2) White box containing tasks */
+.tasks-box {
+  background: transparent;
+  border-radius: 6px;
+  padding: 12px;
+  min-height: 400px;
+  position: relative;
+  margin-top: 0;         /* no extra gap; header’s margin-bottom handles it */
+}
+
+/* 3) Empty-state placeholder */
+.add-task-placeholder {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;    
+  
+  color: gray;        /* your placeholder color */
+  font-size: 14px;
+  cursor: pointer;
+  height: 100%;
+  
+}
+.add-task-placeholder:hover {
+  background-color: transparent;
+}
+
+/* Container wrapping header + board */
+.board-container {
+  width: 100%;
+  
+}
+
+/* HEADER BAR */
+.board-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* pushes button to right */
+  padding: 12px 24px;
+  background: transparent;
+  border-bottom: none;
+}
+
+/* spacer for left side (empty) */
+.board-header-spacer {
+  flex: 1;
+}
+
+/* “+ Add Section” button */
+.add-section-btn {
+  background-color: transparent;
+  color: black;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.add-section-btn:hover {
+  background-color: #e6e7e9;
+}
+.board-container {
+  /* pick whatever feels right—try 40px first */
+  margin-top: 150px;
+}
+.board-title{
+  
+  padding-left:100px;
+  padding-top:-120px;
+  font-size: 25px;
+  margin-top: -100px;
+  
+}
+/* index.css: Enhanced modal styles and overlay blur */
+
+/* Modal overlay (covers and blurs everything behind the modal) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  opacity: 0;
+  animation: fadeInOverlay 0.3s forwards;
+}
+
+/* Animated fade-in for overlay */
+@keyframes fadeInOverlay {
+  to { opacity: 1; }
+}
+
+/* Modal container styling */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 90%;
+  max-width: 400px;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeInModal 0.3s forwards;
+}
+
+/* Animated fade-in and scale for modal */
+@keyframes fadeInModal {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Modal header */
+.modal h3 {
+  margin: 0 0 16px;
+  font-size: 20px;
+  color: #172b4d;
+  text-align: center;
+}
+
+/* Modal inputs and textarea */
+.modal input,
+.modal textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #25242447;
+  border-radius: 6px;
+  
+
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.modal input:focus,
+.modal textarea:focus {
+  outline: none;
+  border-color: #0a0a0a;
+}
+
+/* Modal buttons */
+.modal button {
+  margin-top: 16px;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  background-color: #000000;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.modal button:hover {
+  background-color: #5e6c84;
+}
+
+/* Secondary button style */
+.modal button + button {
+  margin-left: 8px;
+  background-color: #ebecf0;
+  color: #333;
+}
+.modal button + button:hover {
+  background-color: #dfe1e6;
+}
+
+
