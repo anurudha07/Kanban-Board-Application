@@ -55,20 +55,8 @@ Open your browser at http://localhost:8080 (default Vue port).
 
 # Directory Structure
 
-kanban-vue-app/
-├── kanban-backend/        # Express server
-│   ├── controllers/       # Route handlers
-│   ├── models/            # Mongoose schemas
-│   ├── routes/            # API routes
-│   ├── server.js          # Entry point
-│   └── .env.example       # Env variables template
-│
-├── kanban-frontend/       # Vue.js app
-│   ├── public/
-│   ├── src/
-│   │   ├── components/    # Vue components (Board, Column, Modals)
-│   │   ├── api.js         # Axios instance
-│   │   ├── index.css      # Global styles (including modal blur CSS)
+![img1](https://github.com/user-attachments/assets/06bf45dc-08bd-4189-a53d-ca03bc4f0efe)
+
 │   │   └── App.vue
 │   └── package.json
 └── README.md
