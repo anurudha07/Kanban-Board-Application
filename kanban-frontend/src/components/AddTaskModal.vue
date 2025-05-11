@@ -1,4 +1,3 @@
-<!-- src/components/AddTaskModal.vue -->
 <template>
   <div class="modal">
     <h3>Add Task</h3>
