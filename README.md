@@ -22,3 +22,54 @@ Backend: Node.js, Express, Mongoose
 Database: MongoDB (via MONGODB_URI)
 
 Styling: CSS, custom animations for modals
+
+# Getting Started
+
+Prerequisites
+
+Node.js v16+ and npm
+
+MongoDB instance (local or Atlas)
+
+Installation
+
+Clone the repository:
+
+git clone https://github.com/yourusername/kanban-vue-app.git
+cd kanban-vue-app
+
+Install backend dependencies and start server:
+
+cd kanban-backend
+npm install
+cp .env.example .env  # configure MONGODB_URI and PORT
+npm run dev
+
+Install frontend dependencies and start dev server:
+
+cd ../kanban-frontend
+npm install
+npm run serve
+
+Open your browser at http://localhost:8080 (default Vue port).
+
+# Directory Structure
+
+kanban-vue-app/
+├── kanban-backend/        # Express server
+│   ├── controllers/       # Route handlers
+│   ├── models/            # Mongoose schemas
+│   ├── routes/            # API routes
+│   ├── server.js          # Entry point
+│   └── .env.example       # Env variables template
+│
+├── kanban-frontend/       # Vue.js app
+│   ├── public/
+│   ├── src/
+│   │   ├── components/    # Vue components (Board, Column, Modals)
+│   │   ├── api.js         # Axios instance
+│   │   ├── index.css      # Global styles (including modal blur CSS)
+│   │   └── App.vue
+│   └── package.json
+└── README.md
+
