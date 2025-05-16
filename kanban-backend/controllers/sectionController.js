@@ -1,7 +1,6 @@
-// controllers/sectionController.js
 const mongoose = require('mongoose');
 const Section = require('../models/Section');
-const Task    = require('../models/Task');    // ensure Task is registered
+const Task    = require('../models/Task');    
 
 async function getSections(req, res) {
   try {
