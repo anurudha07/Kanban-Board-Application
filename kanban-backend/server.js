@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-// Import routes
+// Importing routes
 const sectionRoutes = require('./routes/sectionRoutes');
 const taskRoutes = require('./routes/taskRoutes');
 const Section = require('./models/Section'); // 👈 Import Section model
@@ -14,7 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Log all incoming requests
+// all incoming requests
 app.use((req, res, next) => {
   console.log(`📣 ${req.method} ${req.originalUrl}`);
   next();
